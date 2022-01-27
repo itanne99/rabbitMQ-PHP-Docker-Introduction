@@ -1,0 +1,28 @@
+version: "3.3"
+services:
+  rabbitmq-1:
+        # network_mode: IT420
+        hostname: rabbit-1
+        container_name: rabbit-1
+        image: 'rabbitmq:3.8-management'
+        ports:
+            - '15672:15672'
+            - '5672:5672'
+        volumes:
+            - rabbitmq_log:/var/log/rabbitmq
+            - rabbitmq_data:/var/lib/rabbitmq
+
+  rabbit-listener:
+        container_name: rabbit-listener
+        image: 'local-rabbit-listener'
+        depends_on:
+            - rabbitmq-1
+
+  rabbit-client-1:
+      container_name: rabbit-client-1
+      image: 'local-rabbit-client'
+
+
+volumes:
+  rabbitmq_log:
+  rabbitmq_data:
