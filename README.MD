@@ -10,7 +10,7 @@
    1. This may take a minute or two
 4. Return to the project root directory
 5. Run ```cd ./rabbitmq-listener```
-6. Run ```docker build . -t local-rabbit-client```
+6. Run ```docker build . -t local-rabbit-listener```
 7. Return to the project root directory
 8. Run ```docker compose up -d```
    1. This may take a minute or two
