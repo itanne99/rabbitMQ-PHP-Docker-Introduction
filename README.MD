@@ -1,9 +1,9 @@
-#RabbitMQ-PHP-Docker-Introduction
+# RabbitMQ-PHP-Docker-Introduction
 
-##Pre-req Install
+## Pre-req Install
 - Docker Desktop
 
-##How to Set Up Docker Containers
+## How to Set Up Docker Containers
 1. Open terminal to project directory
 2. Run ```cd ./rabbitmq-client```
 3. Run ```docker build . -t local-rabbit-client```
@@ -15,7 +15,7 @@
 8. Run ```docker compose up -d```
    1. This may take a minute or two
 
-##Setting up RabbitMQ
+## Setting up RabbitMQ
 1. After building the docker-compose
 2. Open your browser and go to `localhost:15672`
 3. Use the default login. User & Pass is `guest`
@@ -47,12 +47,12 @@
 29. Click 'Bind'
 30. The RabbitMQ Server is now ready for the listener and client
 
-##Running the RabbitMQ Listener
+## Running the RabbitMQ Listener
 1. After building the docker-compose
 2. In terminal, Run `docker start rabbit-listener`
 3. The listener should be up and running
 
-##Running the RabbitMQ Client
+## Running the RabbitMQ Client
 1. After building the docker-compose
 2. In terminal, Run `docker start rabbit-client-1`
 3. To check if it ran, Run `docker container logs rabbit-listener`
