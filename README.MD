@@ -5,14 +5,10 @@
 
 ## How to Set Up Docker Containers
 1. Open terminal to project directory
-2. Run ```cd ./rabbitmq-client```
-3. Run ```docker build . -t local-rabbit-client```
+2. Run ```docker build ./rabbitmq-client/ -t local-rabbit-client```
    1. This may take a minute or two
-4. Return to the project root directory
-5. Run ```cd ./rabbitmq-listener```
-6. Run ```docker build . -t local-rabbit-listener```
-7. Return to the project root directory
-8. Run ```docker compose up -d```
+3. Run ```docker build ./rabbitmq-listener/ -t local-rabbit-listener```
+4. Run ```docker compose up -d```
    1. This may take a minute or two
 
 ## Setting up RabbitMQ
