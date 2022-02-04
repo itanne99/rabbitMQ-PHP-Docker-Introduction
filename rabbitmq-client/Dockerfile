@@ -7,4 +7,4 @@ RUN chmod +x /usr/local/bin/install-php-extensions && sync && install-php-extens
 COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
 CMD [ "composer" , "install"]
-CMD [ "php", "./testRabbitMQClient.php" ]
+CMD ["tail" ,"-f", "/dev/null"]
