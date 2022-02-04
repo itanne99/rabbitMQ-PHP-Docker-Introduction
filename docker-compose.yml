@@ -11,16 +11,23 @@ services:
         volumes:
             - rabbitmq_log:/var/log/rabbitmq
             - rabbitmq_data:/var/lib/rabbitmq
+        healthcheck:
+          test: rabbitmq-diagnostics -q ping
+          interval: 10s
+          timeout: 30s
+          retries: 3
 
   rabbit-listener:
         container_name: rabbit-listener
-        image: 'local-rabbit-listener'
+        build: ./rabbitmq-listener
         depends_on:
-            - rabbitmq-1
+            rabbitmq-1:
+              condition: service_healthy
 
   rabbit-client-1:
+      build: ./rabbitmq-client
       container_name: rabbit-client-1
-      image: 'local-rabbit-client'
+
 
 
 volumes:
