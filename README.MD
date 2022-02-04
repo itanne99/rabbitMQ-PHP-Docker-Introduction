@@ -5,10 +5,7 @@
 
 ## How to Set Up Docker Containers
 1. Open terminal to project directory
-2. Run ```docker build ./rabbitmq-client/ -t local-rabbit-client```
-   1. This may take a minute or two
-3. Run ```docker build ./rabbitmq-listener/ -t local-rabbit-listener```
-4. Run ```docker compose up -d```
+2. Run ```docker compose up -d```
    1. This may take a minute or two
 
 ## Setting up RabbitMQ
@@ -43,13 +40,12 @@
 29. Click 'Bind'
 30. The RabbitMQ Server is now ready for the listener and client
 
-## Running the RabbitMQ Listener
+## Running A RabbitMQ Client Message
 1. After building the docker-compose
-2. In terminal, Run `docker start rabbit-listener`
-3. The listener should be up and running
+2. Run `docker exec -ti rabbit-client-1 /bin/bash`
+3. Once loaded into the container, Run `php testRabbitMQClient.php "[Message]"`
+4. From there the rabbit listener will have your message
 
-## Running the RabbitMQ Client
-1. After building the docker-compose
-2. In terminal, Run `docker start rabbit-client-1`
-3. To check if it ran, Run `docker container logs rabbit-listener`
-4. That's it for the RabbitMQ Client
+# Troubleshooting
+## To rebuild the docker-compose images
+- Run the following command `docker compose build`
