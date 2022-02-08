@@ -17,19 +17,6 @@ services:
           timeout: 30s
           retries: 3
 
-  rabbit-listener:
-        container_name: rabbit-listener
-        build: ./rabbitmq-listener
-        depends_on:
-            rabbitmq-1:
-              condition: service_healthy
-
-  rabbit-client-1:
-      build: ./rabbitmq-client
-      container_name: rabbit-client-1
-
-
-
 volumes:
   rabbitmq_log:
   rabbitmq_data:
