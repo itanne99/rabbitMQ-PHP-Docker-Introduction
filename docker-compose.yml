@@ -1,35 +1,5 @@
 version: "3.3"
 services:
-  rabbitmq-1:
-        # network_mode: IT420
-        hostname: rabbit-1
-        container_name: rabbit-1
-        image: 'rabbitmq:3.8-management'
-        ports:
-            - '15672:15672'
-            - '5672:5672'
-        volumes:
-            - rabbitmq_log:/var/log/rabbitmq
-            - rabbitmq_data:/var/lib/rabbitmq
-        healthcheck:
-          test: rabbitmq-diagnostics -q ping
-          interval: 10s
-          timeout: 30s
-          retries: 3
-
-  rabbit-listener:
-        container_name: rabbit-listener
-        build: ./rabbitmq-listener
-        depends_on:
-            rabbitmq-1:
-              condition: service_healthy
-
   rabbit-client-1:
       build: ./rabbitmq-client
       container_name: rabbit-client-1
-
-
-
-volumes:
-  rabbitmq_log:
-  rabbitmq_data:
